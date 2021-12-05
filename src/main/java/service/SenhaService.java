@@ -87,7 +87,7 @@ public Object atualizarSenha(Request request, Response response) throws Exceptio
     	
         return "<h1>Sua senha foi atualizada!</h1>"
         		+"<h1>Agora acesse o armazenamento de senhas!</h1>"
-        		+ "<a href=\"file:///C:/Users/Leonardo%20de%20Oliveira/eclipse-workspace/sprint3-backend/src/main/resources/blumed-new-main%20(2)/blumed-new-main/page-senhas.html\">link do Armazenamento</a>";;
+        		+ "<a href=\"file:///C:/Users/Leonardo%20de%20Oliveira/eclipse-workspace/sprint3-backend/src/main/resources/blumed-new-main%20(2)/blumed-new-main/page-senhas.html\">link do Armazenamento</a>";
     } else {
         response.status(404); // 404 Not found
         return "Senha nÃ£o encontrado.";
@@ -157,7 +157,7 @@ public Object getSenhaNome(Request request, Response response) throws Exception 
 	
 	if (senha != null) {
 	  
-        return "<h1>Aqui estão suas Senhas!</h1>"
+        return "<h1>Aqui estï¿½o suas Senhas!</h1>"
         		+ "<h1>Nome: "+ nomeSenha + "</h1>"
         		+ "<h1>Nome: "+ senha.getSenhaSenha() + "</h1>"
         		+"<h1>Retorne ao armazenamento!</h1>"

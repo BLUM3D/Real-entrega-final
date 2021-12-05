@@ -13,7 +13,7 @@ public class Aplicacao {
 	
 	private static UsuarioService usuarioService = new UsuarioService();
 	private static SenhaService senhaService = new SenhaService();
-	private static CategoriaService categoriaService = new CategoriaService();
+	//private static CategoriaService categoriaService = new CategoriaService();
 
 	
 	
