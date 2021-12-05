@@ -1,0 +1,134 @@
+@import url(./config.css);
+form input {
+  outline: none;
+}
+#teste {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+
+.content {
+  margin-left: 6%;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  padding: 1rem;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: center;
+  font-size: large;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.titles h2 {
+  font-size: xxx-large;
+  background-color: var(--ORANGE1);
+  color: var(--WHITE1);
+  padding: 0.3rem;
+  border-radius: 12px;
+}
+
+.disabled {
+  display: none;
+}
+
+.form_opcoes-senha {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+legend {
+  color: white;
+  background-color: var(--ORANGE1);
+  padding: 5px 10px;
+  border: 0;
+  font-size: large;
+  text-align: center;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.lista-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.form_opcoes-senha label {
+  font-weight: bold;
+}
+
+.ttk form {
+  margin: 0 auto;
+  width: 50%;
+  transition: 0.8s;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -ms-transition: 0.8s;
+  -o-transition: 0.8s;
+}
+.ttk form input {
+  margin-bottom: 0.5rem;
+  outline: none;
+}
+
+.btn-feito {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ORANGE1);
+  border-radius: 12px;
+  background-color: var(--ORANGE1);
+  text-decoration: none;
+  color: var(--WHITE1);
+  box-shadow: 0 4px 15px -6px var(--ORANGE1);
+}
+
+.dobotao {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (max-width: 769px) {
+  .form_opcoes-senha {
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+  #teste {
+    width: 100%;
+  }
+  .content {
+    justify-content: center;
+    margin: 0;
+  }
+  body {
+    padding: 0;
+  }
+  .lista-btn {
+    flex-direction: column;
+  }
+
+  .ttk form {
+    width: 80%;
+  }
+
+  .dobotao {
+    margin-top: 1rem;
+  }
+}
