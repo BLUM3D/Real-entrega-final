@@ -7,14 +7,14 @@ import static spark.Spark.*;
 import service.UsuarioService;
 import service.SenhaService;
 import service.CategoriaService;
-import service.ConteudoService;
+
 
 public class Aplicacao {
 	
 	private static UsuarioService usuarioService = new UsuarioService();
 	private static SenhaService senhaService = new SenhaService();
 	private static CategoriaService categoriaService = new CategoriaService();
-	private static ConteudoService conteudoService = new ConteudoService();
+
 	
 	
     public static void main(String[] args) {
@@ -51,15 +51,6 @@ public class Aplicacao {
         
         get("/categoria/delete/:idCategoria", (request, response) -> categoriaService.excluirCategoria(request, response));
         */
-        
-        //PARA CONTEUDO
-        post("/conteudo", (request, response) -> conteudoService.inserirConteudo(request, response));
-        
-        get("/conteudo/:idConteudo", (request, response) -> conteudoService.getConteudo(request, response));
-        
-        get("/conteudo/update/:idConteudo", (request, response) -> conteudoService.atualizarConteudo(request, response));
-        
-        get("/conteudo/delete/:idConteudo", (request, response) -> conteudoService.excluirConteudo(request, response));
         
         
         
