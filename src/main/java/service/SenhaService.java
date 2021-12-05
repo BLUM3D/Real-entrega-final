@@ -157,7 +157,7 @@ public Object getSenhaNome(Request request, Response response) throws Exception 
 	
 	if (senha != null) {
 	  
-        return "<h1>Aqui estï¿½o suas Senhas!</h1>"
+        return "<h1>Aqui estão suas Senhas!</h1>"
         		+ "<h1>Nome: "+ nomeSenha + "</h1>"
         		+ "<h1>Nome: "+ senha.getSenhaSenha() + "</h1>"
         		+"<h1>Retorne ao armazenamento!</h1>"
