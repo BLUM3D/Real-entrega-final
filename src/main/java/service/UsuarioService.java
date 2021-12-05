@@ -70,7 +70,7 @@ public class UsuarioService {
 
 	}
 
-	public Object atualizarUsuario(Request request, Response response) {
+	public Object atualizarUsuario(Request request, Response response) throws Exception {
         int id = Integer.parseInt(request.params(":id"));
         
 		Usuario usuario = (Usuario) usuarioDAO.getUsuarioId(id);
