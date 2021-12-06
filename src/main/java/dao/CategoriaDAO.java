@@ -3,6 +3,7 @@ package dao;
 import java.sql.*;
 
 import model.Categoria;
+import model.Usuario;
 
 public class CategoriaDAO {
 	private Connection conexao;
@@ -11,23 +12,22 @@ public class CategoriaDAO {
 		conexao = null;
 	}
 	
+	public static int maxId = 0;
+	
+	public int getMaxId() {
+		return maxId;
+	}
+	
 	public boolean conectar() {
-		String driverName = "com.mysql.jdbc.Driver";                    
-		String serverName = "localhost";
-		String mydatabase = "user";
-		int porta = 3306;
-		String url = "jdbc:mysql://" + serverName + ":" + porta +"/" + mydatabase;
-		String username = "root";
-		String password = "1234";
-		/*
-		String driverName = "org.postgresql.Driver ";                    
-		String serverName = "localhost";
-		String mydatabase = "user";
+		
+		String driverName = "org.postgresql.Driver";                    
+		String serverName = "blum3d.postgres.database.azure.com";
+		String mydatabase = "blum3d";
 		int porta = 5432;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta +"/" + mydatabase;
-		String username = "postgres";
-		String password = "1234";
-		 */
+		String username = "administrador@blum3d";
+		String password = "Blum3d1234";
+		
 		boolean status = false;
 
 		try {
@@ -58,10 +58,11 @@ public class CategoriaDAO {
 	
 	public boolean inserirCategoria(Categoria categoria) {
 		boolean status = false;
+		String paramNomeCategoria = categoria.getNomeCategoria().replace("'", "");
 		try {  
 			Statement st = conexao.createStatement();
-			st.executeUpdate("INSERT INTO Categoria (idCategoria, Nome) "
-					       + "VALUES ("+categoria.getIdCategoria() + ", '" + categoria.getNomeCategoria()  + "');");
+			String sql = "INSERT INTO Categoria (\"idCategoria\", \"nomeCategoria\", \"idSenha_fk\") VALUES ("+categoria.getIdCategoria() + ", '{" + paramNomeCategoria +"}'," + categoria.getIdSenha()+ ");";
+			st.executeUpdate(sql);
 			st.close();
 			status = true;
 		} catch (SQLException u) {  
@@ -111,7 +112,7 @@ public class CategoriaDAO {
 	             rs.beforeFirst();
 
 	             for(int i = 0; rs.next(); i++) {
-	                categorias[i] = new Categoria(rs.getInt("idCategoria"), rs.getString("Nome"));
+	                categorias[i] = new Categoria(rs.getInt("idCategoria"), rs.getString("nomeCategoria"), rs.getInt("idSenha_fk"));
 	             }
 	          }
 	          st.close();
@@ -119,5 +120,29 @@ public class CategoriaDAO {
 			System.err.println(e.getMessage());
 		}
 		return categorias;
+	}
+	
+	public int getMaxIdCategoria() {
+		Categoria[] categorias = null;
+		int MaxId = 0;
+		
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = st.executeQuery("SELECT * FROM categoria;");		
+	         if(rs.next()){
+	             rs.last();
+	             categorias = new Categoria[rs.getRow()];
+	             rs.beforeFirst();
+
+	             for(int i = 0; rs.next(); i++) {
+	                MaxId = rs.getInt("idCategoria") + 1;  
+	             }
+	          }
+	          st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		System.out.println(MaxId);
+		return MaxId;
 	}
 }

@@ -28,8 +28,6 @@ public class UsuarioService {
 		String senha = request.queryParams("senha");
 		
 		
-		
-		
 		int id = usuarioDAO.getMaxIdUsuario();
 		System.out.println(id);
 		

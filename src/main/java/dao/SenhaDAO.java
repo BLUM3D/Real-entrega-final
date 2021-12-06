@@ -76,10 +76,10 @@ public class SenhaDAO {
 			String paramNome = senha.getNomeSenha().replace("'", "");
 			String paramSenha = senha.getSenhaSenha().replace("'", "");
 			
-			byte [] paramSenhaEncrypt = criptografia.encrypt(paramSenha);
-			String SenhaEncrypt = new String(paramSenhaEncrypt);
+			//byte [] paramSenhaEncrypt = criptografia.encrypt(paramSenha);
+			//String SenhaEncrypt = new String(paramSenhaEncrypt);
 			
-			String sql = "INSERT INTO senha (\"idSenha\", \"nomeSenha\", \"senhaSenha\", \"Usuario_idUsuario\") VALUES ("+senha.getIdSenha()+ ", '{"+paramNome+"}', '{"+SenhaEncrypt+"}', "+senha.getIdUsuario()+");";
+			String sql = "INSERT INTO senha (\"idSenha\", \"nomeSenha\", \"senhaSenha\", \"Usuario_idUsuario\") VALUES ("+senha.getIdSenha()+ ", '{"+paramNome+"}', '{"+paramSenha+"}', "+senha.getIdUsuario()+");";
 			st.executeUpdate(sql);
 			st.close();
 			status = true;

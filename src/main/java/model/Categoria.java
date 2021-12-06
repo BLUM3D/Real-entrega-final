@@ -3,15 +3,18 @@ package model;
 public class Categoria {
 	protected int idCategoria;
 	private String nomeCategoria;
+	public int idSenha;
 	
 	public Categoria() {
 		idCategoria = -1;
 		nomeCategoria = "redessociais";
+		idSenha = 0;
 		
 	}
-	public Categoria(int IdCategoria, String nomeCategoria) {
-		setIdCategoria(IdCategoria);
+	public Categoria(int idCategoria, String nomeCategoria, int idSenha) {
+		setIdCategoria(idCategoria);
 		setNomeCategoria(nomeCategoria);
+		setIdSenha(idSenha);
 	}
 	
 	
@@ -26,6 +29,12 @@ public class Categoria {
 	}
 	public String getNomeCategoria() {
 		return nomeCategoria;
+	}
+	public void setIdSenha(int idSenha) {
+		this.idSenha = idSenha;
+	}
+	public int getIdSenha() {
+		return idSenha;
 	}
 	
 	public String toString() {

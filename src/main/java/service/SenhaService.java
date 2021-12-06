@@ -6,6 +6,8 @@ import dao.UsuarioDAO;
 import model.Senha;
 import model.Usuario;
 import service.UsuarioService;
+import dao.CategoriaDAO;
+import model.Categoria;
 
 import spark.Request;
 import spark.Response;
@@ -15,6 +17,7 @@ public class SenhaService {
 	
 	private SenhaDAO senhaDAO;
 	private UsuarioDAO usuarioDAO;
+	private CategoriaDAO categoriaDAO;
 	public UsuarioService usuarioService;
 	
 	public static int maxId = 0;
@@ -34,6 +37,7 @@ public class SenhaService {
 public Object inserirSenha(Request request, Response response) throws Exception {
         
 	String nomeSenha = request.queryParams("nomeSenha");
+	String nomeCategoria = request.queryParams("nomeCategoria");
 	String senhaSenha = request.queryParams("senhaSenha");
 	
 	int idSenha = senhaDAO.getMaxIdSenha();
@@ -42,7 +46,12 @@ public Object inserirSenha(Request request, Response response) throws Exception 
 	
 	Senha senha = new Senha(idSenha, nomeSenha, senhaSenha, idUsuario);
 	
+	
+	//int idCategoria = categoriaDAO.getMaxIdCategoria();
+	//Categoria categoria = new Categoria(idCategoria, nomeCategoria, idSenha);
+	
 	senhaDAO.inserirSenha(senha);
+	//categoriaDAO.inserirCategoria(categoria);
 	Senha[] senhas = senhaDAO.getSenhas();
 
 	response.status(201); // 201 Created
@@ -157,11 +166,11 @@ public Object getSenhaNome(Request request, Response response) throws Exception 
 	
 	if (senha != null) {
 	  
-        return "<h1>Aqui estï¿½o suas Senhas!</h1>"
+        return "<h1>Aqui estão suas Senhas!</h1>"
         		+ "<h1>Nome: "+ nomeSenha + "</h1>"
         		+ "<h1>Nome: "+ senha.getSenhaSenha() + "</h1>"
         		+"<h1>Retorne ao armazenamento!</h1>"
-        		+ "<a href=\"file:///C:/Users/Leonardo%20de%20Oliveira/eclipse-workspace/sprint3-backend/src/main/resources/blumed-new-main%20(2)/blumed-new-main/page-login.html\">link do Armazenamento</a>";
+        		+ "<a href=\"file:///C:/Users/Leonardo%20de%20Oliveira/eclipse-workspace/sprint3-backend/src/main/resources/blumed-new-main%20(2)/blumed-new-main/page-senhas.html\">link do Armazenamento</a>";
     } else {
         response.status(404); // 404 Not found
         return "Senha " + nomeSenha + " nÃ£o encontrado.";

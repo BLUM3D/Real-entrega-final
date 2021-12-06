@@ -6,14 +6,12 @@ import static spark.Spark.*;
 
 import service.UsuarioService;
 import service.SenhaService;
-import service.CategoriaService;
 
 
 public class Aplicacao {
 	
 	private static UsuarioService usuarioService = new UsuarioService();
 	private static SenhaService senhaService = new SenhaService();
-	//private static CategoriaService categoriaService = new CategoriaService();
 
 	
 	
@@ -41,16 +39,7 @@ public class Aplicacao {
         
         get("/usuario/delete/:idUsuario", (request, response) -> usuarioService.excluirUsuario(request, response));
         
-        //PARA CATEGORIA
-        /*
-        post("/categoria", (request, response) -> categoriaService.inserirCategoria(request, response));
         
-        get("/categoria/:idCategoria", (request, response) -> categoriaService.getCategoria(request, response));
-        
-        get("/categoria/update/:idCategoria", (request, response) -> categoriaService.atualizarCategoria(request, response));
-        
-        get("/categoria/delete/:idCategoria", (request, response) -> categoriaService.excluirCategoria(request, response));
-        */
            
         
         

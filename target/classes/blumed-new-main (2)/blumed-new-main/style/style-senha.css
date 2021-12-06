@@ -102,6 +102,42 @@ legend {
   justify-content: center;
 }
 
+.gerador {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 50%;
+}
+
+.coletaDados {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#password {
+  width: 100%;
+}
+
+.input-box button {
+  width: 50%;
+}
 @media (max-width: 769px) {
   .form_opcoes-senha {
     flex-direction: column;
